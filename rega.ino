@@ -1,12 +1,26 @@
 #include "DHT.h"
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
+#include <WiFi.h>
 
+// Definições de PIN e sensor da humidade do solo
 #define DHTPIN 23        // Pino do DHT22
 #define DHTTYPE DHT22    // Tipo do DHT
 
 #define LEDPIN 2         // Pino do LED
-#define SOILPIN 34       // Novo pino analógico para o "sensor de umidade do solo"
+#define SOILPIN 34       // Novo pino analógico para o "sensor de humidade do solo"
 
 DHT dht(DHTPIN, DHTTYPE);
+
+// Configurações do broker MQTT e Wi-Fi
+const char* mqtt_server = "broker.emqx.io";
+const char* ssid = "";
+const char* password = "";
+const char* mqtt_topic = "IPB/IoT/PraticalWork/Rega";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
 
 void setup() {
   Serial.begin(115200);
