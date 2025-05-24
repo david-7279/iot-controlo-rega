@@ -1,0 +1,34 @@
+1. Bibliotecas e Definições
+  > Usa bibliotecas para WiFi, MQTT (PubSubClient), sensor DHT (temperatura/humidade) e JSON.
+  > Define os pinos para o sensor DHT22, um potenciômetro (simula humidade do solo) e um LED (simula a bomba de água).
+
+
+2. Configuração de Rede
+  > Define o SSID e password do WiFi e o endereço do broker MQTT.
+
+
+3. Tópicos MQTT
+  > Define tópicos para enviar/receber dados: temperatura, humidade do ar, humidade do solo, comandos de rega e estado da bomba.
+
+
+4. Funções Principais
+  > setup_wifi(): Liga o ESP32 ao WiFi.
+  > callback(): Função chamada quando chega uma mensagem MQTT. Se receber "REGAR", liga a bomba (LED); se receber "NAO_REGAR", desliga.
+  > reconnect(): Garante que o ESP32 está sempre ligado ao broker MQTT e subscreve o tópico de comandos.
+
+
+5. setup()
+  > Inicializa a comunicação em série, sensores, pinos e liga o WiFi e MQTT.
+
+
+6. loop()
+  > Mantém a ligação MQTT.
+  > A cada 5 segundos:
+    * Lê temperatura e humidade do ar (DHT22).
+    * Lê humidade do solo (potenciómetro).
+    * Publica estes valores nos respetivos tópicos MQTT.
+    * Mostra os valores no monitor série.
+
+
+7. Automação
+  > O sistema pode ser controlado remotamente via MQTT, ligando/desligando a bomba conforme os comandos recebidos.
