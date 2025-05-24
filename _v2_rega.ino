@@ -16,7 +16,7 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 /* === CONFIG WI-FI / MQTT === */
-const char* ssid = "GUEST";
+const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 const char* mqtt_server = "broker.emqx.io";
 
