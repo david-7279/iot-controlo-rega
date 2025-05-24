@@ -1,0 +1,221 @@
+[
+    {
+        "id": "09944443c13cfba4",
+        "type": "tab",
+        "label": "Pratical Work",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7c883103e096482b",
+        "type": "comment",
+        "z": "09944443c13cfba4",
+        "name": "Subscrever ao Tópico da Temperatura",
+        "info": "",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "mqtt_temp",
+        "type": "mqtt in",
+        "z": "09944443c13cfba4",
+        "name": "Temperatura",
+        "topic": "IPB/IoT/PW2/TurnoD/Group2/Temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "12da53346277876d",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "ui_temp"
+            ]
+        ]
+    },
+    {
+        "id": "ui_temp",
+        "type": "ui_gauge",
+        "z": "09944443c13cfba4",
+        "name": "Temperatura (ºC)",
+        "group": "grp1",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": 50,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "mqtt_hum",
+        "type": "mqtt in",
+        "z": "09944443c13cfba4",
+        "name": "Humidade Ar",
+        "topic": "IPB/IoT/PW2/TurnoD/Group2/HumidadeAr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "12da53346277876d",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 270,
+        "y": 360,
+        "wires": [
+            [
+                "ui_hum"
+            ]
+        ]
+    },
+    {
+        "id": "ui_hum",
+        "type": "ui_gauge",
+        "z": "09944443c13cfba4",
+        "name": "Humidade Ar (%)",
+        "group": "grp1",
+        "order": 2,
+        "width": 6,
+        "height": "4",
+        "gtype": "gage",
+        "title": "Humidade do Ar",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "mqtt_solo",
+        "type": "mqtt in",
+        "z": "09944443c13cfba4",
+        "name": "Humidade Solo",
+        "topic": "IPB/IoT/PW2/TurnoD/Group2/HumidadeSolo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "12da53346277876d",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "ui_solo"
+            ]
+        ]
+    },
+    {
+        "id": "ui_solo",
+        "type": "ui_gauge",
+        "z": "09944443c13cfba4",
+        "name": "Humidade Solo (%)",
+        "group": "grp1",
+        "order": 3,
+        "width": 6,
+        "height": "4",
+        "gtype": "gage",
+        "title": "Humidade do Solo",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ca17082be69fda1f",
+        "type": "comment",
+        "z": "09944443c13cfba4",
+        "name": "Subscrever ao Tópico da Humidade",
+        "info": "",
+        "x": 340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "12da53346277876d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "grp1",
+        "type": "ui_group",
+        "name": "Dashboard Rega",
+        "tab": "tab1",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "tab1",
+        "type": "ui_tab",
+        "name": "Sistema de Rega",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
