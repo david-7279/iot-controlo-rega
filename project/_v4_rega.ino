@@ -1,3 +1,6 @@
+//Enviamos dados temperatura e humidade do ar, humidade do solo, luminosidade(sim ou não)
+//quando o solo se encontra num nivel baixo, ativa o motor de água com 5volts(ligado a um transistor)
+
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <DHT.h>
