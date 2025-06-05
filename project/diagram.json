@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "David",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 6.6, "left": -93.2, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -201.6, "left": -14.36, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -128.4,
+      "left": 90.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -105.3,
+      "left": -187.8,
+      "attrs": { "humidity": "9.5" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -97.3, "left": 220.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "bb1:tn.7", "black", [ "v0" ] ],
+    [ "esp:GND.2", "bb1:tn.14", "black", [ "v0" ] ],
+    [ "pot1:GND", "bb1:tn.21", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:bp.25", "red", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:bp.1", "red", [ "v0" ] ],
+    [ "esp:23", "dht1:SDA", "green", [ "h0" ] ],
+    [ "led1:C", "bb1:tn.16", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v0" ] ],
+    [ "led1:A", "esp:2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
